@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        <link rel="stylesheet" type="text/css" href="onsenui/css/onsenui.css">
+        <link rel="stylesheet" type="text/css" href="onsenui/css/onsen-css-components.css">
+        <link rel="stylesheet" type="text/css" href="css/main.css">
+        <title>持病と服薬情報の管理</title>
+    </head>
+    <body>
+<script type="text/javascript" src="cordova.js"></script>
+<script type="text/javascript" src="angular.min.js"></script>
+<script type="text/javascript" src="onsenui/js/onsenui.js"></script>
+<script type="text/javascript" src="onsenui/js/angular-onsenui.js"></script>
+<!--
+    <ons-splitter>
+		<ons-splitter-side id="menu" side="left" width="220px" collapse swipeable>
+		<ons-page>
+			<ons-list>
+				<ons-list-item onclick="fn.load('home.html')" tappable>
+				トップページ
+				</ons-list-item>
+				<ons-list-item onclick="fn.load('manage.html')" tappable>
+					<div class="left"><ons-icon icon="fa-medkit"></ons-icon></div><div class="center">病気の情報管理</div>
+				</ons-list-item>
+				<ons-list-item onclick="fn.load('money.html')" tappable>
+					<div class="left"><ons-icon icon="fa-yen"></ons-icon></div><div class="center">年金</div>
+				</ons-list-item>
+				<ons-list-item onclick="fn.load('care.html')" tappable>
+					<div class="left"><ons-icon icon="fa-wheelchair"></ons-icon></div><div class="center">介護</div>
+				</ons-list-item>
+				<ons-list-item onclick="fn.load('talk.html')" tappable>
+					<div class="left"><ons-icon icon="fa-phone"></ons-icon></div><div class="center">相談</div>
+				</ons-list-item>
+	      </ons-list>
+		</ons-page>
+		</ons-splitter-side>
+		<ons-splitter-content>
+			<ons-navigator id="navi" page="home.html"></ons-navigator>
+		</ons-splitter-content>
+	</ons-splitter>
+
+<template id="home.html">
+	<ons-page id="page-home">
+	<ons-toolbar>
+		<div class="left">
+			<ons-toolbar-button onclick="fn.open()">
+				<ons-icon icon="md-menu"></ons-icon>
+
+			</ons-toolbar-button>
+		</div>
+		<div class="center">老後の役立ちアプリ</div>
+    </ons-toolbar>
+	<p style="text-align: center; padding-top: 0.1em; font-size: 1.5em;white-space: nowrap;">
+		病気の情報の管理や、<wbr>老後生活に必要な情報を<wbr>提供します。
+	</p>
+
+	<ons-row class="category">
+		<ons-col id="push-button-manage" modifer="nodivider">
+			<div class="category_wrapper">
+				<figure class="category_thumbnail">
+					<ons-icon icon="fa-medkit"></ons-icon>
+					<div class="category_title">病気の管理</div>
+				</figure>
+			</div>
+		</ons-col>
+		<ons-col id="push-button-money" modifer="nodivider">
+			<div class="category_wrapper">
+				<figure class="category_thumbnail">
+					<ons-icon icon="fa-yen"></ons-icon>
+					<div class="category_title">年金</div>
+				</figure>
+			</div>
+		</ons-col>
+	</ons-row>
+	<ons-row class="category">
+		<ons-col id="push-button-care" modifer="nodivider">
+			<div class="category_wrapper">
+				<figure class="category_thumbnail">
+					<ons-icon icon="fa-wheelchair"></ons-icon>
+					<div class="category_title">介護</div>
+				</figure>
+			</div>
+		</ons-col>
+		<ons-col id="push-button-talk" modifer="nodivider">
+			<div class="category_wrapper">
+				<figure class="category_thumbnail">
+					<ons-icon icon="fa-phone"></ons-icon>
+					<div class="category_title">相談</div>
+				</figure>
+			</div>
+		</ons-col>
+	</ons-row>
+
+	</ons-page>
+</template>
+-->
+<ons-navigator id="navi" page="manage.html"></ons-navigator>
+<template id="manage.html">
+  <ons-page id="page-manage">
+    <ons-toolbar>
+      <!--
+      <div class="left">
+        <ons-toolbar-button onclick="fn.open()" class ="toolbar-icon-font">
+          <ons-icon icon="md-menu"></ons-icon>
+
+        </ons-toolbar-button>
+
+      </div>
+      -->
+      <div class="center">
+        病気と服用情報の管理
+      </div>
+      <div class="right">
+      	<ons-toolbar-button id="push-button-manage-listToEntry" class="toolbar-icon-font">
+	      	<ons-icon icon="fa-plus-square-o"></ons-icon>
+	      	<span>登録</span>
+	    </ons-toolbar-button>
+      </div>
+    </ons-toolbar>
+	<ons-tabbar swipable position="top">
+		<ons-tab page="manage_illness.html" label="病気" class="tab_font" active>
+			<ons-icon icon="fa-heartbeat" class="icon_padding"></ons-icon>
+		</ons-tab>
+		<ons-tab page="manage_medicine.html" label="服用" class="tab_font">
+			<ons-icon icon="fa-medkit" class="icon_padding"></ons-icon>
+		</ons-tab>
+	</ons-tabbar>
+<!--
+    <div class="inpage_title">
+		服用情報の一覧
+	</div>
+	<ons-list id="medicine-list">
+	</ons-list>
+-->
+<!--
+	<ons-list>
+		<ons-lazy-repeat id="infinite-list"></ons-lazy-repeat>
+	</ons-list>
+-->
+<!--
+	<ons-fab id="push-button-manage-listToEntry" position="bottom right">
+		<ons-icon icon="md-plus"></ons-icon>
+	</ons-fab>
+ -->
+  </ons-page>
+</template>
+
+<template id="manage_medicine.html">
+	<ons-page id="page-manage-medicine">
+<!--
+			<ons-button onClick="dropMedicine()">dropTable</ons-button>
+			<ons-button onClick="deleteAlarmAll()">cancellAlarm</ons-button>
+ -->
+	    <div class="inpage_title">
+			服用情報の一覧
+		</div>
+		<ons-list id="medicine-list">
+		</ons-list>
+	</ons-page>
+
+</template>
+<!--
+<ons-toast id="manage-medicine-toast" animation="ascend" class="init_list_toast">
+	「登録」を押して情報を登録してください
+	<button onclick="document.getElementById('manage-medicine-toast').hide()">OK</button>
+</ons-toast>
+ -->
+
+<template id="manage_entry.html">
+  <ons-page id="page-manage-entry">
+    <ons-toolbar>
+      <div class="left">
+        <ons-back-button class="toolbar-icon-font">戻る</ons-back-button>
+      </div>
+      <div class="center">
+        服用情報の管理
+      </div>
+      <div class="right">
+      	<ons-toolbar-button id="push-button-manage-entry" class="toolbar-icon-font">
+	      	<ons-icon icon="fa-check-square-o"></ons-icon>
+	      	<span>確定</span>
+	    </ons-toolbar-button>
+      </div>
+    </ons-toolbar>
+    <div class="inpage_title">
+    	服用情報の登録
+	</div>
+
+	<div class="inpage_content">
+		<div class="left inpage_content_subtitle">
+			薬の名前
+		</div>
+		<div class="inpage_content_input">
+			<div class="inpage_content_explain_input">薬の名前を入力してください</div>
+			<div class="inpage_content_area_input">
+				<ons-input id="entry-medicine-name" modifier="underbar" placeholder="薬の名前"></ons-input>
+			</div>
+		</div>
+
+		<div class="left inpage_content_subtitle">
+			服用の頻度
+		</div>
+
+			<div class="inpage_content_input">
+				<div class="inpage_content_explain_input">薬を服用する頻度を選択してください</div>
+				<div class="inpage_content_area_input">
+ 				<ons-select id="entry-medicine-times" onChange="displayMedTemp()" modifier="underbar">
+ 					<option value="毎日">毎日</option>
+ 					<option value="頓服">頓服</option>
+					<option value="1日おき">1日おき</option>
+					<option value="2日おき">2日おき</option>
+					<option value="3日おき">3日おき</option>
+					<option value="4日おき">4日おき</option>
+					<option value="5日おき">5日おき</option>
+					<option value="6日おき">6日おき</option>
+					<option value="7日おき">7日おき</option>
+					<option value="8日おき">8日おき</option>
+					<option value="9日おき">9日おき</option>
+					<option value="10日おき">10日おき</option>
+					<option value="11日おき">11日おき</option>
+					<option value="12日おき">12日おき</option>
+					<option value="13日おき">13日おき</option>
+					<option value="14日おき">14日おき</option>
+					<option value="15日おき">15日おき</option>
+					<option value="16日おき">16日おき</option>
+					<option value="17日おき">17日おき</option>
+					<option value="18日おき">18日おき</option>
+					<option value="19日おき">19日おき</option>
+					<option value="20日おき">20日おき</option>
+					<option value="21日おき">21日おき</option>
+					<option value="22日おき">22日おき</option>
+					<option value="23日おき">23日おき</option>
+					<option value="24日おき">24日おき</option>
+					<option value="25日おき">25日おき</option>
+					<option value="26日おき">26日おき</option>
+					<option value="27日おき">27日おき</option>
+					<option value="28日おき">28日おき</option>
+					<option value="29日おき">29日おき</option>
+					<option value="30日おき">30日おき</option>
+				</ons-select>
+				</div>
+			</div>
+
+		<div id="input-medicine-amount">
+			<div class="inpage_content_subtitle">
+				服用量
+			</div>
+			<div class="left inpage_content_input">
+				<div class="inpage_content_explain_input">1回で薬を服用する量を入力してください</div>
+				<div class="inpage_content_area_input">
+					<ons-input id="entry-medicine-amount" modifier="underbar" placeholder="服用量(数字)"></ons-input>
+					<ons-select id="entry-medicine-amount_unit" modifier="underbar">
+ 						<option value="錠">錠</option>
+ 						<option value="袋">袋</option>
+ 						<option value="本">本</option>
+ 						<option value="枚">枚</option>
+ 						<option value="個">個</option>
+ 						<option value="ml">ml</option>
+ 						<option value="mg">mg</option>
+ 					</ons-select>
+ 				</div>
+			</div>
+		</div>
+
+		<div id="input-medicine-times-hour">
+			<div class="inpage_content_subtitle">
+				服用時間
+			</div>
+			<div class="left inpage_content_input">
+				<div class="inpage_content_explain_input">薬を服用する時間を選択してください<br>（複数選択できます）</div>
+				<div class="inpage_content_area_input">
+					<ons-select id="entry-medicine-timing" modifier="underbar" multiple>
+ 						<option value="毎食後">毎食後</option>
+ 						<option value="食後（朝食）">食後（朝食）</option>
+ 						<option value="食後（昼食）">食後（昼食）</option>
+ 						<option value="食後（夕食）">食後（夕食）</option>
+ 						<option value="食前（朝食）">食前（朝食）</option>
+ 						<option value="食前（昼食）">食前（昼食）</option>
+ 						<option value="食前（夕食）">食前（夕食）</option>
+ 						<option value="食間（朝食と昼食の間）">食間（朝食と昼食の間）</option>
+ 						<option value="食間（昼食と夕食の間）">食間（昼食と夕食の間）</option>
+ 						<option value="就寝前">就寝前</option>
+ 					</ons-select>
+ 				</div>
+			</div>
+		</div>
+
+		<div id="input-medicine-alarm">
+			<div class="inpage_content_subtitle">
+				アラームの設定
+			</div>
+			<div class="inpage_content_input">
+				<div class="inpage_content_explain_input">薬を服用する時間をお知らせします</div>
+				<div class="inpage_content_area_input">
+					<span id="entry-medicine-alarmOnOff">通知する</span>
+					<ons-switch id="alarmSwitch" onChange="inputSwitch()" checked></ons-switch>
+				</div>
+			</div>
+			<div class="inpage_content_input" id="input-medicine-alarm_startdate" style="display:flex;">
+				<div class="inpage_content_explain_input">お知らせを開始する日を指定してください</div>
+				<div class="inpage_content_area_input">
+					<ons-input type="date" id="entry-medicine-startdate"></ons-input>
+				</div>
+			</div>
+			<div class="inpage_content_input" id="input-medicine-alarm_on" style="display:flex;">
+				<div class="inpage_content_explain_input">お知らせする時間を選択してください<br>（複数選択できます）</div>
+				<div class="inpage_content_area_input">
+				<ons-select id="entry-medicine-alarm" modifier="underbar" multiple>
+ 					<option value="0:00">0:00</option>
+					<option value="0:30">0:30</option>
+					<option value="1:00">1:00</option>
+					<option value="1:30">1:30</option>
+					<option value="2:00">2:00</option>
+					<option value="2:30">2:30</option>
+					<option value="3:00">3:00</option>
+					<option value="3:30">3:30</option>
+					<option value="4:00">4:00</option>
+					<option value="4:30">4:30</option>
+					<option value="5:00">5:00</option>
+					<option value="5:30">5:30</option>
+					<option value="6:00">6:00</option>
+					<option value="6:30">6:30</option>
+					<option value="7:00">7:00</option>
+					<option value="7:30">7:30</option>
+					<option value="8:00">8:00</option>
+					<option value="8:30">8:30</option>
+					<option value="9:00">9:00</option>
+					<option value="9:30">9:30</option>
+					<option value="10:00">10:00</option>
+					<option value="10:30">10:30</option>
+					<option value="11:00">11:00</option>
+					<option value="11:30">11:30</option>
+					<option value="12:00">12:00</option>
+					<option value="12:30">12:30</option>
+					<option value="13:00">13:00</option>
+					<option value="13:30">13:30</option>
+					<option value="14:00">14:00</option>
+					<option value="14:30">14:30</option>
+					<option value="15:00">15:00</option>
+					<option value="15:30">15:30</option>
+					<option value="16:00">16:00</option>
+					<option value="16:30">16:30</option>
+					<option value="17:00">17:00</option>
+					<option value="17:30">17:30</option>
+					<option value="18:00">18:00</option>
+					<option value="18:30">18:30</option>
+					<option value="19:00">19:00</option>
+					<option value="19:30">19:30</option>
+					<option value="20:00">20:00</option>
+					<option value="20:30">20:30</option>
+					<option value="21:00">21:00</option>
+					<option value="21:30">21:30</option>
+					<option value="22:00">22:00</option>
+					<option value="22:30">22:30</option>
+					<option value="23:00">23:00</option>
+					<option value="23:30">23:30</option>
+				</ons-select>
+				</div>
+			</div>
+		</div>
+<!--
+	<p style="margin-top: 30px;">
+		<ons-button  id="push-button-manage-entry">服薬情報の登録</ons-button>
+	</p>
+ -->
+  </ons-page>
+</template>
+
+<template id="manage_detail.html">
+  <ons-page id="page-manage-detail">
+    <ons-toolbar>
+      <div class="left">
+        <ons-back-button class="toolbar-icon-font">戻る</ons-back-button>
+      </div>
+      <div class="center">
+        服用情報の管理
+      </div>
+      <div class="right">
+      	<ons-toolbar-button id="push-button-manage-edit" class="toolbar-icon-font">
+	      	<ons-icon icon="fa-pencil-square-o"></ons-icon>
+	      	<span>編集</span>
+	    </ons-toolbar-button>
+      	<ons-toolbar-button id="push-button-manage-delete" class="toolbar-icon-font">
+	      	<ons-icon icon="fa-trash-o"></ons-icon>
+	      	<span>削除</span>
+	    </ons-toolbar-button>
+      </div>
+    </ons-toolbar>
+    <div class="inpage_title">
+		服用情報の詳細
+	</div>
+
+	<div class="inpage_content">
+		<div class="left inpage_content_subtitle">
+			薬の名前
+		</div>
+			<div id="show-medicine-name" class="inpage_content_detail"></div>
+		<div class="left inpage_content_subtitle">
+			服用の頻度
+		</div>
+			<div id="show-medicine-times" class="inpage_content_detail"></div>
+		<div class="left inpage_content_subtitle">
+			服用量
+		</div>
+			<div id="show-medicine-amount" class="inpage_content_detail"></div>
+		<div class="left inpage_content_subtitle">
+			服用の時間
+		</div>
+			<div id="show-medicine-timing" class="inpage_content_detail"></div>
+		<div class="left inpage_content_subtitle">
+			アラームによる通知
+		</div>
+			<div id="show-medicine-alarmSwitch" class="inpage_content_detail"></div>
+			<div id="show-medicine-alarm" class="inpage_content_detail"></div>
+
+<!--
+		<p style="margin-top: 30px;">
+			<ons-button id="push-button-manage-edit">服用情報の編集</ons-button>
+			<ons-button id="push-button-manage-delete">服用情報の削除</ons-button>
+		</p>
+ -->
+    </div>
+  </ons-page>
+</template>
+
+
+<template id="manage_illness.html">
+	<ons-page id="page-manage-illness">
+	    <div class="inpage_title">
+			持病情報の一覧
+		</div>
+		<ons-list id="illness-list">
+		</ons-list>
+	</ons-page>
+</template>
+
+<template id="manage_illness_entry.html">
+	<ons-page id="page-manage-illness-entry">
+		<ons-toolbar>
+			<div class="left">
+				<ons-back-button class="toolbar-icon-font">戻る</ons-back-button>
+			</div>
+			<div class="center">
+			病気の情報の管理
+			</div>
+			<div class="right">
+				<ons-toolbar-button id="push-button-manage-illness-entry" class="toolbar-icon-font">
+					<ons-icon icon="fa-check-square-o"></ons-icon>
+					<span>確定</span>
+				</ons-toolbar-button>
+			</div>
+		</ons-toolbar>
+		<div class="inpage_title">
+    	病気情報の登録
+		</div>
+
+		<div class="inpage_content">
+			<div class="left inpage_content_subtitle">
+				病気の名前
+			</div>
+			<div class="inpage_content_input">
+				<div class="inpage_content_explain_input">病気の名前を入力してください</div>
+				<div class="inpage_content_area_input">
+					<ons-input id="entry-illness-name" modifier="underbar" placeholder="病気の名前"></ons-input>
+				</div>
+			</div>
+
+			<div class="left inpage_content_subtitle">
+				いつから
+			</div>
+			<div class="inpage_content_input">
+				<div class="inpage_content_explain_input">いつ頃からの症状なのか入力してください</div>
+				<div class="inpage_content_area_input">
+					<ons-input id="entry-illness-from" modifier="underbar" placeholder="いつ"></ons-input>頃から
+				</div>
+			</div>
+
+			<div class="left inpage_content_subtitle">
+				主治医
+			</div>
+			<div class="inpage_content_input">
+				<div class="inpage_content_explain_input">主治医のいる病院名を入力してください</div>
+				<div class="inpage_content_area_input">
+					<ons-input id="entry-illness-hospitalname" modifier="underbar" placeholder="病院名"></ons-input>
+				</div>
+			</div>
+			<div class="inpage_content_input">
+				<div class="inpage_content_explain_input">主治医の名前を入力してください</div>
+				<div class="inpage_content_area_input">
+					<ons-input id="entry-illness-doctorname" modifier="underbar" placeholder="名前"></ons-input>先生
+				</div>
+			</div>
+
+			<div class="left inpage_content_subtitle">
+				最近の症状
+			</div>
+			<div class="inpage_content_input_not_flex">
+				<div class="inpage_content_explain_input">最近の症状を入力してください</div>
+				<div class="inpage_content_area_input">
+                   <!--
+                   <textarea id="entry-illness-symptom" class="textarea" placeholder="○月○日　症状" cols="40" rows="5"></textarea>
+               -->
+                   <textarea id="entry-illness-symptom" class="textarea" placeholder="○月○日　症状" rows="5"></textarea>
+                   <!--
+                    <ons-input id="entry-illness-symptom" modifier="underbar" placeholder="症状"></ons-input>
+-                    -->
+				</div>
+			</div>
+
+		</div>
+	</ons-page>
+</template>
+<!--
+<ons-toast id="manage-illness-toast" animation="ascend" class="init_list_toast">
+	「登録」を押して情報を登録してください
+	<button onclick="document.getElementById('manage-illness-toast').hide()">OK</button>
+</ons-toast>
+ -->
+<template id="manage_illness_detail.html">
+  <ons-page id="page-manage-illness-detail">
+    <ons-toolbar>
+      <div class="left">
+        <ons-back-button class="toolbar-icon-font">戻る</ons-back-button>
+      </div>
+      <div class="center">
+        病気の情報の管理
+      </div>
+      <div class="right">
+      	<ons-toolbar-button id="push-button-manage-illness-edit" class="toolbar-icon-font">
+	      	<ons-icon icon="fa-pencil-square-o"></ons-icon>
+	      	<span>編集</span>
+	    </ons-toolbar-button>
+      	<ons-toolbar-button id="push-button-manage-illness-delete" class="toolbar-icon-font">
+	      	<ons-icon icon="fa-trash-o"></ons-icon>
+	      	<span>削除</span>
+	    </ons-toolbar-button>
+      </div>
+    </ons-toolbar>
+    <div class="inpage_title">
+		病気情報の詳細
+	</div>
+
+	<div class="inpage_content">
+		<div class="left inpage_content_subtitle">
+			病気の名前
+		</div>
+			<div id="show-illness-name" class="inpage_content_detail"></div>
+		<div class="left inpage_content_subtitle">
+			いつから
+		</div>
+			<div id="show-illness-from" class="inpage_content_detail"></div>
+		<div class="left inpage_content_subtitle">
+			主治医
+		</div>
+			<div id="show-illness-hospitalname" class="inpage_content_detail"></div>
+			<div id="show-illness-doctorname" class="inpage_content_detail"></div>
+		<div class="left inpage_content_subtitle">
+			最近の症状
+		</div>
+			<div id="show-illness-symptom" class="inpage_content_detail"></div>
+
+    </div>
+  </ons-page>
+</template>
+
+
+
+
+<template id="money.html">
+  <ons-page id="page-money">
+    <ons-toolbar>
+      <div class="left">
+        <ons-toolbar-button onclick="fn.open()">
+          <ons-icon icon="md-menu"></ons-icon>
+        </ons-toolbar-button>
+      </div>
+      <div class="center">
+        年金についてのページ
+      </div>
+    </ons-toolbar>
+    <div class="content">
+    	<!--
+		<p style="font-size: 1.5em;">
+			年金について正しい知識を身につけましょう
+		</p>
+		-->
+		<p style="font-size: 1.0em;">
+			リンクをタップするとウェブページを開きます
+		</p>
+		<br>
+		<p>
+			<a href="http://www.nenkin.go.jp/service/index.html"><ons-icon icon="fa-share-square-o"></ons-icon>年金について - 日本年金機構</a>
+		</p>
+		<br>
+		<p>
+    		<a href="https://www.nenkin.go.jp/n_net/"><ons-icon icon="fa-share-square-o"></ons-icon>ねんきんネット - 日本年金機構</a>
+		</p>
+	</div>
+  </ons-page>
+</template>
+
+<template id="care.html">
+  <ons-page id="page-care">
+    <ons-toolbar>
+      <div class="left">
+        <ons-toolbar-button onclick="fn.open()">
+          <ons-icon icon="md-menu"></ons-icon>
+        </ons-toolbar-button>
+      </div>
+      <div class="center">
+        介護についてのページ
+      </div>
+    </ons-toolbar>
+    <div class="content">
+       <p style="font-size: 1.0em;">
+           リンクをタップするとウェブページを開きます
+       </p>
+       <br>
+       <p>
+           <a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/hukushi_kaigo/kaigo_koureisha/gaiyo/index.html"><ons-icon icon="fa-share-square-o"></ons-icon>介護保険制度の概要 - 厚生労働省</a>
+       </p>
+       <br>
+       <p>
+           <a href="http://www.kaigokensaku.mhlw.go.jp/"><ons-icon icon="fa-share-square-o"></ons-icon>介護事業所・生活関連情報検索 - 厚生労働省</a>
+       </p>
+   </div>
+  </ons-page>
+</template>
+
+<template id="talk.html">
+  <ons-page id="page-talk">
+    <ons-toolbar>
+      <div class="left">
+        <ons-toolbar-button onclick="fn.open()">
+          <ons-icon icon="md-menu"></ons-icon>
+        </ons-toolbar-button>
+      </div>
+      <div class="center">
+        相談ページ
+      </div>
+    </ons-toolbar>
+    <div class="content">
+       <p style="font-size: 1.0em;">
+           準備中
+       </p>
+   </div>
+  </ons-page>
+</template>
+
+
+<script type="text/javascript" src="js/main.js"></script>
+
+    </body>
+</html>

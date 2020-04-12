@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="jp.oldage.com" version="1.0.5" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <feature name="Whitelist">
+        <param name="android-package" value="org.apache.cordova.whitelist.WhitelistPlugin" />
+        <param name="onload" value="true" />
+    </feature>
+    <feature name="Device">
+        <param name="android-package" value="org.apache.cordova.device.Device" />
+    </feature>
+    <feature name="LocalNotification">
+        <param name="android-package" value="de.appplant.cordova.plugin.localnotification.LocalNotification" />
+    </feature>
+    <feature name="Badge">
+        <param name="android-package" value="de.appplant.cordova.plugin.badge.Badge" />
+    </feature>
+    <name>持病と服薬情報の管理</name>
+    <description>
+        A sample Apache Cordova application that responds to the deviceready event.
+    </description>
+    <author email="necown_nore@yahoo.co.jp">
+    </author>
+    <content src="mainpage.html" />
+    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
+    <allow-intent href="market:*" />
+    <icon density="mdpi" src="res/mainicon-mdpi.png" />
+    <icon density="hdpi" src="res/mainicon-hdpi.png" />
+    <icon density="xhdpi" src="res/mainicon-xhdpi.png" />
+    <icon density="xxhdpi" src="res/mainicon-xxhdpi.png" />
+    <icon density="xxxhdpi" src="res/mainicon-xxxhdpi.png" />
+    <icon density="mdpi" src="res/ic_notify.png" />
+    <icon density="hdpi" src="res/ic_notify.png" />
+    <icon density="xhdpi" src="res/ic_notify.png" />
+    <icon density="xxhdpi" src="res/ic_notify.png" />
+    <icon density="xxxhdpi" src="res/ic_notify.png" />
+    <preference name="loglevel" value="DEBUG" />
+    <preference name="DisallowOverscroll" value="true" />
+    <preference name="keepRunning" value="true" />
+    <preference name="android-minSdkVersion" value="19" />
+</widget>

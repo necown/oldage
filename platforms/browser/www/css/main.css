@@ -1,0 +1,156 @@
+.menu_button{
+	display: flex;
+	flex-direction: column;
+/*	justify-content:space-between;
+	justify-content:space-around;*/
+	text-align: center;
+	border-radius: 2%;
+	box-shadow: 5px 5px 5px rgba(0,0,0,0.1);
+	padding: 1em;
+	margin-top:1em;
+	background: rgb(0, 150, 189);
+
+
+}
+
+.inpage_title{
+	text-align: left;
+	padding-top: 30px;
+	padding-left: 10px;
+	font-weight: bold;
+}
+
+.inpage_content{
+	text-align: left;
+	width: 100%;
+/*	padding-left: 20px;*/
+}
+
+.inpage_content_subtitle{
+	text-align: left;
+	padding-left: 10px;
+	background: rgb(0, 150, 189);
+	color: white;
+	max-height: 1.4em;
+}
+
+.inpage_content_detail{
+	text-align: left;
+	padding-left: 1.0em;
+	background: rgb(255, 255, 255);
+	min-height: 3em;
+    white-space: pre-wrap;
+}
+
+.inpage_content_input{
+    display: flex;
+    justify-content: space-between;
+    text-align: right;
+    padding-left: 1.0em;
+    padding-top: 0.5em;
+    padding-right: 1.0em;
+    background: rgb(255, 255, 255);
+    min-height: 3em;
+}
+
+.inpage_content_input_not_flex{
+	text-align: right;
+	padding-left: 1.0em;
+    padding-top: 0.5em;
+    padding-right: 1.0em;
+	background: rgb(255, 255, 255);
+	min-height: 3em;
+}
+
+.inpage_content_explain_input{
+	text-align: left;
+    margin: 0 0.5em 0 0;
+    font-size: 0.8em;
+    width: 48%;
+/*    padding-top: 0.5em;*/
+}
+
+.inpage_content_explain_input #entry-medicine-amount{
+    width: 60%;
+}
+
+.inpage_content_area_input{
+	text-align: right;
+    margin: 0 0.5em 0 0;
+/*    font-size: 0.8em;*/
+    width: 48%;
+}
+
+.list_content_detail{
+	min-height: 3em;
+}
+
+.category{
+	margin: 20px 0px;
+	padding: 0px 30px;
+}
+
+.category_wrapper{
+	max-width: 12em;
+	width: 90%;
+	margin: auto;
+	background-color:#E4E4E4;
+	background-image:linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
+	box-shadow: 5px 5px 5px rgba(0,0,0,0.1);
+	border-radius: 5%;
+	line-height: 3em;
+}
+
+.category_thumbnail{
+	display: inline-block;
+	margin: 16px 0px;
+	max-width: 12em;
+	width: 100%;
+	text-align: center;
+}
+
+.category_wrapper ons-icon{
+	font-size: 4em;
+	padding-top: 10px;
+	line-height: 0.75em;
+	color: blue;
+}
+
+.category_title{
+	font-size: 1.5em;
+	font-weight: bold;
+	padding-top: 10px;
+	color: blue;
+}
+
+.info-list-icon .list-item__icon{
+    border-style: solid;
+    border-color: blue;
+    border-width: 2px;
+    border-radius: 5px;
+    padding: 8px;
+}
+
+.right ons-toolbar-button{
+	padding: 0px;
+}
+
+ons-toolbar-button > span{
+	font-size: 0.7em;
+	vertical-align: top;
+}
+
+.icon_padding{
+	padding-right: 0.3em;
+}
+
+.tab_font{
+    font-size: 3em;
+}
+
+.content{
+	text-align: left;
+	width: 100%;
+	padding: 0.1em;
+
+}

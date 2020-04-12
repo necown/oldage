@@ -1,0 +1,10 @@
+{
+  "background_color": "#FFF",
+  "display": "standalone",
+  "name": "持病と服薬情報の管理",
+  "short_name": "持病と服薬情報の管理",
+  "version": "jp.oldage.com",
+  "description": "A sample Apache Cordova application that responds to the deviceready event.",
+  "icons": [],
+  "start_url": "mainpage.html"
+}
