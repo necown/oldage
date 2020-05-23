@@ -59,6 +59,27 @@ module.exports = [
         "clobbers": [
             "cordova.plugins.notification.local"
         ]
+    },
+    {
+        "file": "plugins/cordova-promise-polyfill/www/Promise.js",
+        "id": "cordova-promise-polyfill.Promise",
+        "pluginId": "cordova-promise-polyfill",
+        "runs": true
+    },
+    {
+        "file": "plugins/cordova-promise-polyfill/www/promise.min.js",
+        "id": "cordova-promise-polyfill.promise.min",
+        "pluginId": "cordova-promise-polyfill"
+    },
+    {
+        "file": "plugins/cordova-plugin-admob-free/www/admob.js",
+        "id": "cordova-plugin-admob-free.AdMob",
+        "pluginId": "cordova-plugin-admob-free",
+        "clobbers": [
+            "admob",
+            "AdMob",
+            "plugins.AdMob"
+        ]
     }
 ];
 module.exports.metadata = 
@@ -68,7 +89,10 @@ module.exports.metadata =
     "cordova-plugin-vibration": "3.1.1",
     "cordova-plugin-device": "2.0.3",
     "cordova-plugin-badge": "0.8.8",
-    "cordova-plugin-local-notification": "0.9.0-beta.3"
+    "cordova-plugin-local-notification": "0.9.0-beta.3",
+    "cordova-promise-polyfill": "0.0.2",
+    "cordova-admob-sdk": "0.24.1",
+    "cordova-plugin-admob-free": "0.27.0"
 }
 // BOTTOM OF METADATA
 });

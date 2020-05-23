@@ -49,14 +49,15 @@
        },false)
 
 
-//       admob.banner.config({
-//           id: 'ca-app-pub-2877338582226110/3834828410',
+       admob.banner.config({
+           id: 'ca-app-pub-2877338582226110/7340925781',
+//           id: 'ca-app-pub-3940256099942544/6300978111',//テストID
 //           isTesting: true,
-//           autoShow: true
-//       });
-//       admob.banner.prepare();
-//       setTimeout(admob.banner.show(),3000);
-//     admob.banner.show();
+           autoShow: true
+       });
+       admob.banner.prepare();
+       setTimeout(admob.banner.show(),3000);
+//       admob.banner.show();
        console.log("deviceready end");
    });
 
@@ -823,8 +824,8 @@ function entryAlarm(_id, mname, mtimes, mstart, malarm, oldSwitch){
 //	console.log("now.toLocaleDateString():" + now.toLocaleDateString());
 	console.log("mtimes:" + mtimes);
 	//毎日１分ずつずれていくのでひいておく
-	var everyMinutes = (dic[mtimes] * 24 * 60) -1;
-//	var everyMinutes = (dic[mtimes] * 24 * 60);
+//	var everyMinutes = (dic[mtimes] * 24 * 60) -1;
+	var everyMinutes = (dic[mtimes] * 24 * 60);
 	console.log("everyMinutes:" + everyMinutes);
 
 

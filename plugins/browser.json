@@ -15,6 +15,15 @@
     },
     "cordova-plugin-local-notification": {
       "PACKAGE_NAME": "jp.oldage.com"
+    },
+    "cordova-promise-polyfill": {
+      "PACKAGE_NAME": "jp.oldage.com"
+    },
+    "cordova-admob-sdk": {
+      "PACKAGE_NAME": "jp.oldage.com"
+    },
+    "cordova-plugin-admob-free": {
+      "PACKAGE_NAME": "jp.oldage.com"
     }
   },
   "dependent_plugins": {

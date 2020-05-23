@@ -16,6 +16,17 @@
     "cordova-plugin-local-notification": {
       "ANDROID_SUPPORT_V4_VERSION": "26.+",
       "PACKAGE_NAME": "jp.oldage.com"
+    },
+    "cordova-promise-polyfill": {
+      "PACKAGE_NAME": "jp.oldage.com"
+    },
+    "cordova-admob-sdk": {
+      "PLAY_SERVICES_VERSION": "11.0.4",
+      "PACKAGE_NAME": "jp.oldage.com"
+    },
+    "cordova-plugin-admob-free": {
+      "ADMOB_APP_ID": "ca-app-pub-2877338582226110~1158660815",
+      "PACKAGE_NAME": "jp.oldage.com"
     }
   },
   "dependent_plugins": {

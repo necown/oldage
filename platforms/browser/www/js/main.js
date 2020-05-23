@@ -44,15 +44,18 @@
 
        var epage = document.querySelector('#navi');
        console.log(epage.onDeviceBackButton.isEnabled());
+       epage.addEventListener("backbutton",function(){
+       		document.querySelector('#navi').popPage();
+       },false)
 
 
-       admob.banner.config({
-           id: 'ca-app-pub-2877338582226110/3834828410',
-           isTesting: true,
-           autoShow: true
-       });
-       admob.banner.prepare();
-       setTimeout(admob.banner.show(),3000);
+//       admob.banner.config({
+//           id: 'ca-app-pub-2877338582226110/3834828410',
+//           isTesting: true,
+//           autoShow: true
+//       });
+//       admob.banner.prepare();
+//       setTimeout(admob.banner.show(),3000);
 //     admob.banner.show();
        console.log("deviceready end");
    });
@@ -168,7 +171,8 @@
 
 									//アラーム登録
 									if(alarmSwitch){
-										entryAlarm(result.insertId, mname, mtimes, mstart, malarm, alarmSwitchOld);
+										deleteAlarm(result.insertId);
+										setTimeout(entryAlarm(result.insertId, mname, mtimes, mstart, malarm, alarmSwitchOld),500);
 									}
 									document.querySelector('#navi').popPage();
 
@@ -198,7 +202,8 @@
 
 									//アラーム登録
 									if(alarmSwitch){
-										entryAlarm(page.data.page_medicine_id, mname, mtimes, mstart, malarm, alarmSwitchOld);
+										deleteAlarm(page.data.page_medicine_id);
+										setTimeout(entryAlarm(page.data.page_medicine_id, mname, mtimes, mstart, malarm, alarmSwitchOld),500);
 									}else{
 										deleteAlarm(page.data.page_medicine_id);
 									}
@@ -818,14 +823,14 @@ function entryAlarm(_id, mname, mtimes, mstart, malarm, oldSwitch){
 //	console.log("now.toLocaleDateString():" + now.toLocaleDateString());
 	console.log("mtimes:" + mtimes);
 	//毎日１分ずつずれていくのでひいておく
-//	var everyMinutes = (dic[mtimes] * 24 * 60) -1;
-	var everyMinutes = (dic[mtimes] * 24 * 60);
+	var everyMinutes = (dic[mtimes] * 24 * 60) -1;
+//	var everyMinutes = (dic[mtimes] * 24 * 60);
 	console.log("everyMinutes:" + everyMinutes);
 
 
 	//ckのselectedごとにアラームをセット
 	var count = 0;
-	deleteAlarm(_id);
+	//deleteAlarm(_id);
 
 	for(var i in ck){
 		if(ck[i].selected == true){
@@ -860,8 +865,8 @@ function entryAlarm(_id, mname, mtimes, mstart, malarm, oldSwitch){
 //						firstAt: almDate,
 //						every: everyMinutes,
 //１						trigger: {after: almDate, every: {hour:22, minute:40, second:0}},
+//						trigger: {firstAt: almDate, every: everyMinutes, unit: "minute"},
 						trigger: {firstAt: almDate, every: everyMinutes, unit: "minute"},
-//						trigger: {firstAt: new Date(), every: 1, unit: "minute"},
 //						every: 1,
 //						unit: "day",
 						led: "FF0000",
@@ -870,7 +875,7 @@ function entryAlarm(_id, mname, mtimes, mstart, malarm, oldSwitch){
 						data:{
 							test: id
 						},
-						priority: 5
+						priority: 2
 					}
 
 				);
@@ -917,25 +922,26 @@ function entryAlarm(_id, mname, mtimes, mstart, malarm, oldSwitch){
 	cordova.plugins.notification.local.on("trigger",function(notification){
 //		alert("triggered:"+notification.id);
 		console.log("triggered:"+notification.id);
-		var realmDate = new Date();
-		realmDate.setMinutes(realmDate.getMinutes() - everyMinutes);
-		cordova.plugins.notification.local.schedule(
-					{
-						id: id,
-						title: '服用時間のお知らせ',
-						text: mname,
-						sound: null,
-						trigger: {firstAt: realmDate, every: everyMinutes, unit: "minute"},
-						led: "FF0000",
-						foreground: true,
-						smallIcon: "res://ic_notify",
-						data:{
-							test: id
-						},
-						priority: 5
-					}
+//		var realmDate = new Date();
+//		realmDate.setMinutes(realmDate.getMinutes() - everyMinutes);
+//		cordova.plugins.notification.local.schedule(
+//					{
+//						id: id,
+//						title: '服用時間のお知らせ',
+//						text: mname,
+//						sound: null,
+//						trigger: {firstAt: realmDate, every: everyMinutes, unit: "minute"},
+//						trigger: {firstAt: realmDate, every: 1, unit: "minute"},
+//						led: "FF0000",
+//						foreground: true,
+//						smallIcon: "res://ic_notify",
+//						data:{
+//							test: id
+//						},
+//						priority: 2
+//					}
 
-				);
+//				);
 		navigator.vibrate([1000,100,1000,100,1000]);
 
 	});
@@ -966,14 +972,16 @@ function showAlarm(_id){
 function deleteAlarm(_id){
 
 	console.log("deleteAlarm:" + _id);
-
-	for(var count = 0; count < 48; count++){
+	var cancelfun = function(_id){
 		var id = _id*100 + count;
 		cordova.plugins.notification.local.cancel(id,function(){
 			console.log("canceled:"+id);
 		});
-
 	}
+	for(var count = 0; count < 48; count++){
+		setTimeout(cancelfun(_id), 10);
+	}
+
 }
 
 function deleteAlarmAll(){
